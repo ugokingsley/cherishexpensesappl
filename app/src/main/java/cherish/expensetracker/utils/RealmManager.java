@@ -3,7 +3,6 @@ package cherish.expensetracker.utils;
 import cherish.expensetracker.ExpenseTrackerApp;
 import cherish.expensetracker.entities.Category;
 import cherish.expensetracker.entities.Expense;
-import cherish.expensetracker.entities.Reminder;
 
 import java.util.UUID;
 
@@ -109,8 +108,7 @@ public class RealmManager {
                     ((Expense)object).setId(id);
                 } else if (object instanceof  Category){
                     ((Category)object).setId(id);
-                } else {
-                    ((Reminder)object).setId(id);
+
                 }
                 repeated = false;
             }

@@ -3,7 +3,6 @@ package cherish.expensetracker.utils;
 import android.preference.PreferenceManager;
 import android.widget.EditText;
 
-import com.github.mikephil.charting.utils.ColorTemplate;
 import cherish.expensetracker.ExpenseTrackerApp;
 import cherish.expensetracker.R;
 
@@ -26,21 +25,7 @@ public class Util {
         return (et.getText() == null || et.getText().toString().isEmpty());
     }
 
-    public static List<Integer> getListColors() {
-        ArrayList<Integer> colors = new ArrayList<>();
-        for (int c : ColorTemplate.LIBERTY_COLORS)
-            colors.add(c);
-        for (int c : ColorTemplate.VORDIPLOM_COLORS)
-            colors.add(c);
-        for (int c : ColorTemplate.JOYFUL_COLORS)
-            colors.add(c);
-        for (int c : ColorTemplate.COLORFUL_COLORS)
-            colors.add(c);
-        for (int c : ColorTemplate.PASTEL_COLORS)
-            colors.add(c);
-        colors.add(ColorTemplate.getHoloBlue());
-        return colors;
-    }
+
 
     public static String getFormattedCurrency(float number) {
         String countryCode = PreferenceManager.getDefaultSharedPreferences(ExpenseTrackerApp.getContext()).getString(ExpenseTrackerApp.getContext().getString(R.string.pref_country_key), ExpenseTrackerApp.getContext().getString(R.string.default_country));

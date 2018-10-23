@@ -9,14 +9,7 @@
             android:id="@+id/nav_categories"
             android:icon="@drawable/ic_label_black_48dp"
             android:title="@string/categories" />
-        <item
-            android:id="@+id/nav_statistics"
-            android:icon="@drawable/ic_insert_chart_black_48dp"
-            android:title="@string/statistics" />
-        <item
-            android:id="@+id/nav_reminders"
-            android:icon="@drawable/ic_alarm_black_48dp"
-            android:title="@string/reminders" />
+
         <item
             android:id="@+id/nav_history"
             android:icon="@drawable/ic_today_black_24dp"

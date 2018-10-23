@@ -29,9 +29,9 @@ import cherish.expensetracker.ui.categories.CategoriesFragment;
 import cherish.expensetracker.ui.expenses.ExpensesContainerFragment;
 import cherish.expensetracker.ui.help.HelpActivity;
 import cherish.expensetracker.ui.history.HistoryFragment;
-import cherish.expensetracker.ui.reminders.ReminderFragment;
+
 import cherish.expensetracker.ui.settings.SettingsActivity;
-import cherish.expensetracker.ui.statistics.StatisticsFragment;
+
 import cherish.expensetracker.utils.DateUtils;
 import cherish.expensetracker.utils.Util;
 
@@ -295,12 +295,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 break;
             case R.id.nav_categories:
                 if (!(currentFragment instanceof  CategoriesFragment)) replaceFragment(CategoriesFragment.newInstance(), false);
-                break;
-            case R.id.nav_statistics:
-                if (!(currentFragment instanceof  StatisticsFragment)) replaceFragment(StatisticsFragment.newInstance(), false);
-                break;
-            case R.id.nav_reminders:
-                if (!(currentFragment instanceof  ReminderFragment)) replaceFragment(ReminderFragment.newInstance(), false);
                 break;
             case R.id.nav_history:
                 if (!(currentFragment instanceof HistoryFragment)) replaceFragment(HistoryFragment.newInstance(), false);
