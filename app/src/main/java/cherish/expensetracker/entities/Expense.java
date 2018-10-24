@@ -1,8 +1,8 @@
 package cherish.expensetracker.entities;
 
 
-import cherish.expensetracker.interfaces.IDateMode;
-import cherish.expensetracker.interfaces.IExpensesType;
+import cherish.expensetracker.interface_helpers.IDateMode;
+import cherish.expensetracker.interface_helpers.IExpensesType;
 import cherish.expensetracker.utils.DateUtils;
 import cherish.expensetracker.utils.RealmManager;
 
@@ -123,11 +123,6 @@ public class Expense extends RealmObject {
         return getExpensesList(startWeek, endWeek, null, null);
     }
 
-    public static List<Expense> getWeekExpensesByCategory(Expense expense) {
-        Date startWeek = DateUtils.getFirstDateOfCurrentWeek();
-        Date endWeek = DateUtils.getLastDateOfCurrentWeek();
-        return getExpensesList(startWeek, endWeek, null, expense.getCategory());
-    }
 
     public static List<Expense> getMonthExpenses() {
         Date startMonth = DateUtils.getFirstDateOfCurrentMonth();
@@ -135,10 +130,6 @@ public class Expense extends RealmObject {
         return getExpensesList(startMonth, endMonth, null, null);
     }
 
-    public static float getCategoryTotalByDate(Date date, Category category) {
-        RealmResults<Expense> totalExpense = getExpensesList(date, DateUtils.addDaysToDate(date, 1), IExpensesType.MODE_EXPENSES, category);
-        return totalExpense.sum("total").floatValue();
-    }
 
     public static float getCategoryTotalByDate(Date fromDate, Date toDate, Category category) {
         RealmResults<Expense> totalExpense = getExpensesList(fromDate, DateUtils.addDaysToDate(toDate, 1), IExpensesType.MODE_EXPENSES, category);
@@ -162,11 +153,6 @@ public class Expense extends RealmObject {
         return realmQuery.findAll();
     }
 
-    public static float getExpensesCategoryPercentage(Date fromDate, Date toDate, Category category) {
-        float totalCategory = getCategoryTotalByDate(fromDate, toDate, category);
-        float total = getExpensesList(fromDate, DateUtils.addDaysToDate(toDate, 1), IExpensesType.MODE_EXPENSES, null).sum("total").floatValue();
-        return totalCategory * 100 / total;
-    }
 
     public static List<Expense> cloneExpensesCollection(List<Expense> expenseList) {
         List<Expense> clonedExpenses = new ArrayList<>();

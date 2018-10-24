@@ -39,7 +39,7 @@
             app:layout_columnWeight="1"
             android:gravity="center"
             android:layout_marginBottom="@dimen/dimen_10dp"
-            android:text="@string/date_from"/>
+            android:text="@string/de_from"/>
 
         <Button
             android:id="@+id/btn_date_from"
@@ -47,7 +47,7 @@
             app:layout_columnWeight="1"
             style="?android:attr/borderlessButtonStyle"
             android:textColor="@color/primary_dark"
-            android:text="@string/date_placeholder"/>
+            android:text="@string/dt_placeholder"/>
 
         <TextView
             android:id="@+id/tv_title_date_to"
@@ -55,7 +55,7 @@
             app:layout_columnWeight="1"
             android:gravity="center"
             style="@style/HeaderTextView"
-            android:text="@string/to_date"/>
+            android:text="@string/to_dt"/>
 
         <Button
             android:id="@+id/btn_date_to"
@@ -63,7 +63,7 @@
             app:layout_columnWeight="1"
             style="?android:attr/borderlessButtonStyle"
             android:textColor="@color/primary_dark"
-            android:text="@string/date_placeholder"/>
+            android:text="@string/dt_placeholder"/>
 
         <TextView
             android:id="@+id/tv_total"

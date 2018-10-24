@@ -1,11 +1,21 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cherish.expensetracker.ui.expenses.ExpensesContainerFragment">
+    tools:context="cherish.expensetracker.userinterface.expenses.ExpensesContainerFragment">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_expenses"
+        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_marginBottom="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="click an expense to edit, delete Expenses, by holding an item, a menu will let you select one or more items to delete"
+        android:textSize="15sp"/>
+
 
 </FrameLayout>

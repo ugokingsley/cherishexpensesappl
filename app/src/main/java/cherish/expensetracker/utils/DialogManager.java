@@ -14,7 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
-import cherish.expensetracker.ExpenseTrackerApp;
+import cherish.expensetracker.CherishExpenseTracker;
 import cherish.expensetracker.R;
 
 import java.util.Calendar;
@@ -72,7 +72,7 @@ public class DialogManager {
     }
 
     public void showShortToast(String message) {
-        Toast.makeText(ExpenseTrackerApp.getContext(), message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(CherishExpenseTracker.getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     public void showDatePickerDialog(Context context, DatePickerDialog.OnDateSetListener dateSetListener, Calendar calendar) {

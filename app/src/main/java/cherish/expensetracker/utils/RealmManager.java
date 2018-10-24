@@ -1,6 +1,6 @@
 package cherish.expensetracker.utils;
 
-import cherish.expensetracker.ExpenseTrackerApp;
+import cherish.expensetracker.CherishExpenseTracker;
 import cherish.expensetracker.entities.Category;
 import cherish.expensetracker.entities.Expense;
 
@@ -22,7 +22,7 @@ public class RealmManager {
     }
 
     public RealmManager(){
-        realm = Realm.getInstance(ExpenseTrackerApp.getContext());
+        realm = Realm.getInstance(CherishExpenseTracker.getContext());
     }
 
     public Realm getRealmInstance() {

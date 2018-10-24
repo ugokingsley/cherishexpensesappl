@@ -8,7 +8,7 @@ import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.view.View;
 
-import cherish.expensetracker.ExpenseTrackerApp;
+import cherish.expensetracker.CherishExpenseTracker;
 import cherish.expensetracker.R;
 
 public class FABScrollBehavior extends FloatingActionButton.Behavior {
@@ -23,7 +23,7 @@ public class FABScrollBehavior extends FloatingActionButton.Behavior {
         String a = directTargetChild.getClass().getSimpleName();
         //excluding Statistics case and History for FAB behavior
         if (target instanceof NestedScrollView && target.getTag() != null) {
-            if (target.getTag().toString().equalsIgnoreCase(ExpenseTrackerApp.getContext().getString(R.string.statistics)) || target.getTag().toString().equalsIgnoreCase(ExpenseTrackerApp.getContext().getString(R.string.history))) {
+            if (target.getTag().toString().equalsIgnoreCase(CherishExpenseTracker.getContext().getString(R.string.statistics)) || target.getTag().toString().equalsIgnoreCase(CherishExpenseTracker.getContext().getString(R.string.history))) {
                 return false;
             }
         }

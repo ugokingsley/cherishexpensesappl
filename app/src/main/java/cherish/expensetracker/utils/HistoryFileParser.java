@@ -1,7 +1,7 @@
 package cherish.expensetracker.utils;
 
 import cherish.expensetracker.entities.Expense;
-import cherish.expensetracker.interfaces.FileGeneratorParser;
+import cherish.expensetracker.interface_helpers.FileGeneratorParser;
 
 import java.util.List;
 

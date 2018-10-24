@@ -47,7 +47,6 @@ public class DateUtils {
 
     public static Date getLastDateOfCurrentWeek(){
         Calendar cal = setDateStartOfDay(Calendar.getInstance());
-//        Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_WEEK);
         cal.set(Calendar.DAY_OF_WEEK, 7);
         cal.add(Calendar.DATE, 2);
         return cal.getTime();

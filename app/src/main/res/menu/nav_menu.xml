@@ -1,18 +1,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_income"
+            android:icon="@drawable/ic_money_bag"
+            android:checked="true"
+            android:title="@string/income" />
+
+        <item
             android:id="@+id/nav_expenses"
             android:icon="@drawable/ic_money_bag"
             android:checked="true"
-            android:title="@string/expenses" />
+            android:title="@string/exp" />
         <item
             android:id="@+id/nav_categories"
             android:icon="@drawable/ic_label_black_48dp"
-            android:title="@string/categories" />
+            android:title="@string/cat" />
 
         <item
             android:id="@+id/nav_history"
             android:icon="@drawable/ic_today_black_24dp"
             android:title="@string/history"/>
+
     </group>
 </menu>

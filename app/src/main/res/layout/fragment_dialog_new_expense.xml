@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/ExpenseTrackerTextView"
-        android:text="@string/add_new_expense"
+        android:text="@string/add_exp"
         android:textSize="@dimen/text_size_20"
         android:layout_marginTop="@dimen/dimen_20dp" />
 
@@ -41,7 +41,7 @@
             android:id="@+id/et_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/optional_description"
+            android:hint="@string/opt_description"
             android:layout_marginTop="@dimen/dimen_20dp"
             android:maxLines="2"
             android:layout_marginLeft="@dimen/dimen_20dp"

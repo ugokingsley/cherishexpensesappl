@@ -11,9 +11,9 @@ import android.widget.RemoteViews;
 
 import cherish.expensetracker.R;
 import cherish.expensetracker.entities.Expense;
-import cherish.expensetracker.interfaces.IDateMode;
-import cherish.expensetracker.ui.MainActivity;
-import cherish.expensetracker.ui.expenses.ExpenseDetailActivity;
+import cherish.expensetracker.interface_helpers.IDateMode;
+import cherish.expensetracker.userinterface.MainActivity;
+import cherish.expensetracker.userinterface.expenses.ExpenseDetailActivity;
 import cherish.expensetracker.utils.Util;
 
 
@@ -44,7 +44,7 @@ public class ExpensesWidgetProvider extends AppWidgetProvider {
 
             remoteView.setEmptyView(R.id.listViewWidget, R.id.empty_view);
             remoteView.setRemoteAdapter(appWidgetId, R.id.listViewWidget, widgetServiceIntent);
-            remoteView.setTextViewText(R.id.tv_total, context.getString(R.string.today_expenses_total, Util.getFormattedCurrency(Expense.getTotalExpensesByDateMode(IDateMode.MODE_TODAY))));
+            remoteView.setTextViewText(R.id.tv_total, context.getString(R.string.today_exp_total, Util.getFormattedCurrency(Expense.getTotalExpensesByDateMode(IDateMode.MODE_TODAY))));
             remoteView.setPendingIntentTemplate(R.id.listViewWidget, itemClickPendingIntent);
             ComponentName component=new ComponentName(context, ExpensesWidgetProvider.class);
             appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.listViewWidget);

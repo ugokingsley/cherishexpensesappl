@@ -9,8 +9,8 @@ import android.widget.RemoteViewsService;
 
 import cherish.expensetracker.R;
 import cherish.expensetracker.entities.Expense;
-import cherish.expensetracker.interfaces.IExpensesType;
-import cherish.expensetracker.ui.expenses.ExpenseDetailFragment;
+import cherish.expensetracker.interface_helpers.IExpensesType;
+import cherish.expensetracker.userinterface.expenses.ExpenseDetailFragment;
 import cherish.expensetracker.utils.DateUtils;
 import cherish.expensetracker.utils.Util;
 

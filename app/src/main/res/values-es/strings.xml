@@ -15,64 +15,64 @@
     <string name="saving_money_content_desc">saving money icon</string>
 
     <!--General-->
-    <string name="expenses">Gastos</string>
+    <string name="exp">Gastos</string>
     <string name="income">Ganancias</string>
-    <string name="categories">Categorías</string>
+    <string name="cat">Categorías</string>
     <string name="statistics">Estadísticas</string>
     <string name="reminders">Recordatorios</string>
     <string name="confirm">Confirmar</string>
-    <string name="delete">Borrar</string>
-    <string name="confirm_delete">"Estas seguro de borrar "</string>
+    <string name="del">Borrar</string>
+    <string name="conf_del">"Estas seguro de borrar "</string>
     <string name="save">Guardar</string>
-    <string name="create_category">Crear una Categoría</string>
+    <string name="create_cat">Crear una Categoría</string>
     <string name="cancel">Cancelar</string>
     <string name="today">Hoy</string>
     <string name="week">Semana</string>
     <string name="month">Mes</string>
-    <string name="error_total">Porfavor ingresa un total</string>
+    <string name="err_total">Porfavor ingresa un total</string>
     <string name="description">Descripción</string>
-    <string name="add_new_expense">Añade un nuevo Gasto</string>
-    <string name="optional_description">Descripción (Opcional)</string>
+    <string name="add_exp">Añade un nuevo Gasto</string>
+    <string name="opt_description">Descripción (Opcional)</string>
     <string name="total">Total</string>
-    <string name="confirm_delete_items">Seguro de borrar este/estos item(s)</string>
-    <string name="confirm_delete_expense">Seguro de borrar este gasto?</string>
-    <string name="expense_prefix">- <xliff:g id="amount" example="100.00">%s</xliff:g></string>
+    <string name="conf_del_items">Seguro de borrar este/estos item(s)</string>
+    <string name="conf_del_exp">Seguro de borrar este gasto?</string>
+    <string name="exp_pref">- <xliff:g id="amount" example="100.00">%s</xliff:g></string>
     <string name="income_prefix">+ <xliff:g id="amount" example="100.00">%s</xliff:g></string>
-    <string name="country_currency">Moneda del país</string>
+    <string name="country_curr">Moneda del país</string>
     <string name="pref_country_key">country_key</string>
-    <string name="default_country">US</string>
-    <string name="title_activity_expense_detail">Detalle del Gasto</string>
-    <string name="tv_title_transition">tvTotalTransition</string>
-    <string name="date_placeholder">placeholder de la fecha</string>
-    <string name="to_date">Desde</string>
-    <string name="date_from">Hasta</string>
-    <string name="categories_percentage">Porcentage de las Categorías</string>
-    <string name="total_expenses_per_category">Total de Gastos por categoría</string>
+    <string name="def_country">US</string>
+    <string name="activity_exp_detail_title">Detalle del Gasto</string>
+    <string name="title_transition">tvTotalTransition</string>
+    <string name="dt_placeholder">placeholder de la fecha</string>
+    <string name="to_dt">Desde</string>
+    <string name="de_from">Hasta</string>
+    <string name="cat_percentage">Porcentage de las Categorías</string>
+    <string name="tot_exp_per_cat">Total de Gastos por categoría</string>
     <string name="Save">Guardar</string>
     <string name="hour_format"><xliff:g id="hour" example="09">%02d</xliff:g>:<xliff:g id="minute" example="09">%02d</xliff:g></string>
     <string name="reminder_name_validation">Asigna un nombre al recordatorio</string>
     <string name="pick_day_of_month">Selecciona un día del mes</string>
     <string name="confirm_reminder_delete">Seguro de borrar este recordatorio?</string>
-    <string name="this_week">Esta semana</string>
+    <string name="this_wk">Esta semana</string>
     <string name="reminder_name_hint">Ej. Compañía de la Tarjeta de Crédito</string>
     <string name="reminder_schedule_title">El recordatorio esta guardado para el día: (Día del mes)</string>
     <string name="reminder_time_sent_title">Será enviado a la siguiente hora:</string>
     <string name="reminder_help">Crea un recordatorio para recibir una notificación en cada día del mes para recordar cuando se vencen tus deudas.\n Una notificación te hará recordar cuando se ha asignado. \nRecuerda que puedes apagar el recordatorio cuando desees.</string>
     <string name="create_a_reminder">Crea un recordatorio</string>
     <string name="edit_a_reminder">Edita un Recordatorio</string>
-    <string name="expense_detail">Detalle de un Gasto</string>
-    <string name="same_category_this_week">Otros gastos en esta categoría esta semana:</string>
+    <string name="exp_detail">Detalle de un Gasto</string>
+    <string name="same_cat_this_wk">Otros gastos en esta categoría esta semana:</string>
     <string name="start_using_expense">Empieza a user Control de Gastos!</string>
     <string name="reminders_empty">No se encontraron recordatorios. Agrega uno para recordar fechas importantes</string>
     <string name="categories_empty">No se encontraron categorías. Empieza creando algunas para poder tomar ventaja de las estadísticas.</string>
     <string name="no_chart_data">No hay información disponible</string>
-    <string name="no_categories_error">Crea categorías para poder registrar gastos</string>
-    <string name="today_expenses_total">Hoy: %s</string>
-    <string name="no_expenses_today">No hay gastos hoy</string>
+    <string name="no_cat_err">Crea categorías para poder registrar gastos</string>
+    <string name="today_exp_total">Hoy: %s</string>
+    <string name="no_exp_today">No hay gastos hoy</string>
     <string name="start">Inicio</string>
-    <string name="hint_category">Ej. Comida</string>
+    <string name="hint_cat">Ej. Comida</string>
     <string name="pick_dates">Selecciona un rango de fechas</string>
-    <string name="edit_category">Editar Categoría</string>
+    <string name="edit_cat">Editar Categoría</string>
     <string name="history">Historial</string>
     <string name="action_help">Ayuda</string>
     <string name="help_text">Puedes borrar Gastos, Categorías y Recordatorios si mantienes presionado un item. Puedes seleccionar varios elementos al mismo tiempo.\n\nElige la fecha en la que deseas crear el gasto en la ventana de Nuevo Gasto.\n\nCrea recordatorios que se crearan para ayudarte a recordar fechas importantes.\n\nEdita el nombre de la categoría presionando en un item.\n\nAlguna duda o sugerencia no dudes en contactar carrillochero6@gmail.com</string>
@@ -81,11 +81,11 @@
     <string name="ok">Ok</string>
     <string name="expenses_mail_content">Record de tus gastos por Expense Tracker</string>
     <string name="share_title">Envia tus gastos a tu mail.</string>
-    <string name="error_name">Porfavor ingresa un nombre</string>
+    <string name="err_name">Porfavor ingresa un nombre</string>
     <string name="title_activity_help">Ayuda</string>
     <string name="default_date_format">MM/dd/yyyy</string>
     <string name="date_format_key">date_format_key</string>
-    <string name="date_format">Date Format</string>
+    <string name="dt_format">Date Format</string>
 
 
     <string-array name="date_formats">

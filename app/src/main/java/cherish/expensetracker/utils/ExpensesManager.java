@@ -3,11 +3,11 @@ package cherish.expensetracker.utils;
 import android.content.Intent;
 import android.util.SparseBooleanArray;
 
-import cherish.expensetracker.ExpenseTrackerApp;
+import cherish.expensetracker.CherishExpenseTracker;
 import cherish.expensetracker.entities.Category;
 import cherish.expensetracker.entities.Expense;
-import cherish.expensetracker.interfaces.IDateMode;
-import cherish.expensetracker.interfaces.IExpensesType;
+import cherish.expensetracker.interface_helpers.IDateMode;
+import cherish.expensetracker.interface_helpers.IExpensesType;
 import cherish.expensetracker.widget.ExpensesWidgetProvider;
 import cherish.expensetracker.widget.ExpensesWidgetService;
 
@@ -82,9 +82,9 @@ public class ExpensesManager {
             }
         }
         if (isToday) {
-            Intent i = new Intent(ExpenseTrackerApp.getContext(), ExpensesWidgetProvider.class);
+            Intent i = new Intent(CherishExpenseTracker.getContext(), ExpensesWidgetProvider.class);
             i.setAction(ExpensesWidgetService.UPDATE_WIDGET);
-            ExpenseTrackerApp.getContext().sendBroadcast(i);
+            CherishExpenseTracker.getContext().sendBroadcast(i);
         }
         RealmManager.getInstance().delete(expensesToDelete);
     }

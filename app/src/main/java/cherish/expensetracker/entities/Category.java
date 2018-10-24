@@ -1,6 +1,6 @@
 package cherish.expensetracker.entities;
 
-import cherish.expensetracker.interfaces.IExpensesType;
+import cherish.expensetracker.interface_helpers.IExpensesType;
 import cherish.expensetracker.utils.RealmManager;
 
 import java.util.List;
@@ -59,9 +59,7 @@ public class Category extends RealmObject {
         this.id = id;
     }
 
-    public static List<Category> getCategoriesIncome() {
-        return getCategoriesForType(IExpensesType.MODE_INCOME);
-    }
+
 
     public static List<Category> getCategoriesExpense() {
         return getCategoriesForType(IExpensesType.MODE_EXPENSES);

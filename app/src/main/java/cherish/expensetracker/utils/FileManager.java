@@ -2,7 +2,7 @@ package cherish.expensetracker.utils;
 
 import android.os.Environment;
 
-import cherish.expensetracker.interfaces.FileGeneratorParser;
+import cherish.expensetracker.interface_helpers.FileGeneratorParser;
 
 import java.io.File;
 import java.io.FileWriter;

@@ -9,7 +9,7 @@
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context="cherish.expensetracker.ui.expenses.ExpenseDetailFragment">
+        tools:context="cherish.expensetracker.userinterface.expenses.ExpenseDetailFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,6 +46,8 @@
                     android:paddingBottom="@dimen/activity_vertical_margin"
                     android:orientation="vertical">
 
+
+
                     <TextView
                         android:id="@+id/tv_date"
                         android:layout_width="wrap_content"
@@ -54,11 +56,20 @@
                         android:textSize="@dimen/text_size_14"/>
 
                     <TextView
+                        android:id="@+id/income"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Income : $ 6000"
+                        android:transitionName="@string/title_transition"
+                        android:textSize="@dimen/text_size_30"/>
+
+                    <TextView
                         android:id="@+id/tv_total"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="total"
-                        android:transitionName="@string/tv_title_transition"
+                        tools:text="Total Expenses"
+                        android:transitionName="@string/title_transition"
+                        android:layout_marginTop="@dimen/dimen_10dp"
                         android:textSize="@dimen/text_size_30"/>
 
                     <TextView
@@ -92,13 +103,9 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_marginTop="@dimen/activity_horizontal_margin"
-                    android:text="@string/same_category_this_week"/>
+                    android:text="Surplus/Deficit = $ 300"/>
 
-                <com.github.mikephil.charting.charts.BarChart
-                    android:id="@+id/bc_expenses"
-                    android:layout_marginTop="@dimen/activity_horizontal_margin"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_25_10dp" />
+
 
             </LinearLayout>
 

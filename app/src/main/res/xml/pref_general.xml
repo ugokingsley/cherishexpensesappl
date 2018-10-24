@@ -6,14 +6,14 @@
     android:layout_height="match_parent">
 
     <ListPreference
-        android:title="@string/country_currency"
+        android:title="@string/country_curr"
         android:key="@string/pref_country_key"
-        android:defaultValue="@string/default_country"
+        android:defaultValue="@string/def_country"
         android:entryValues="@array/country_values"
         android:entries="@array/countries_names" />
 
     <ListPreference
-        android:title="@string/date_format"
+        android:title="@string/dt_format"
         android:key="@string/date_format_key"
         android:defaultValue="@string/default_date_format"
         android:entryValues="@array/date_formats"
