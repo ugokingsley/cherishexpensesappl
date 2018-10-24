@@ -150,12 +150,7 @@ public class ExpensesFragment extends MainFragment implements BaseViewHolder.Rec
         }
     }
 
-    public void cancelActionMode() {
-        if (expenseContainerListener.isActionMode()) {
-            expenseContainerListener.endActionMode();
-            mMainExpenseAdapter.clearSelection();
-        }
-    }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

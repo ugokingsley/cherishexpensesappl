@@ -41,8 +41,8 @@ public class NewExpenseFragment extends DialogFragment implements View.OnClickLi
     private EditText etDescription;
     private EditText etTotal;
 
-    private CategoriesSpinnerAdapter mCategoriesSpinnerAdapter;
-    private Date selectedDate;
+    private CategoriesSpinnerAdapter mCategoriesOfExpensesSpinAdapter;
+    private Date DateSelected;
     private Expense mExpense;
 
     private @IUserActionsMode int mUserActionMode;
@@ -61,11 +61,11 @@ public class NewExpenseFragment extends DialogFragment implements View.OnClickLi
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_dialog_new_expense, container, false);
-        tvTitle = (TextView)rootView.findViewById(R.id.tv_title);
-        btnDate = (Button)rootView.findViewById(R.id.btn_date);
-        spCategory = (Spinner)rootView.findViewById(R.id.sp_categories);
-        etDescription = (EditText)rootView.findViewById(R.id.et_description);
-        etTotal = (EditText)rootView.findViewById(R.id.et_total);
+        tvTitle = rootView.findViewById(R.id.tv_title);
+        btnDate = rootView.findViewById(R.id.btn_date);
+        spCategory = rootView.findViewById(R.id.sp_categories);
+        etDescription = rootView.findViewById(R.id.et_description);
+        etTotal = rootView.findViewById(R.id.et_total);
         mExpenseType = IExpensesType.MODE_EXPENSES;
         return rootView;
     }
@@ -83,28 +83,28 @@ public class NewExpenseFragment extends DialogFragment implements View.OnClickLi
         if (getArguments() != null) {
             mUserActionMode = getArguments().getInt(IUserActionsMode.MODE_TAG) == IUserActionsMode.MODE_CREATE ? IUserActionsMode.MODE_CREATE : IUserActionsMode.MODE_UPDATE;
         }
-        setModeViews();
+        setExpensesModeViews();
         btnDate.setOnClickListener(this);
         (getView().findViewById(R.id.btn_cancel)).setOnClickListener(this);
         (getView().findViewById(R.id.btn_save)).setOnClickListener(this);
     }
 
-    private void setModeViews() {
+    private void setExpensesModeViews() {
         List<Category> categoriesList = Category.getCategoriesExpense();
         Category[] categoriesArray = new Category[categoriesList.size()];
         categoriesArray = categoriesList.toArray(categoriesArray);
-        mCategoriesSpinnerAdapter = new CategoriesSpinnerAdapter(getActivity(), categoriesArray);
-        spCategory.setAdapter(mCategoriesSpinnerAdapter);
+        mCategoriesOfExpensesSpinAdapter = new CategoriesSpinnerAdapter(getActivity(), categoriesArray);
+        spCategory.setAdapter(mCategoriesOfExpensesSpinAdapter);
         switch (mUserActionMode) {
             case IUserActionsMode.MODE_CREATE:
-                selectedDate = new Date();
+                DateSelected = new Date();
                 break;
             case IUserActionsMode.MODE_UPDATE:
                 if (getArguments() != null) {
                     String id = getArguments().getString(DetailExpenseFragment.EXPENSE_ID_KEY);
                     mExpense = (Expense) RealmManager.getInstance().findById(Expense.class, id);
                     tvTitle.setText("Edit");
-                    selectedDate = mExpense.getDate();
+                    DateSelected = mExpense.getDate();
                     etDescription.setText(mExpense.getDescription());
                     etTotal.setText(String.valueOf(mExpense.getTotal()));
                     int categoryPosition = 0;
@@ -137,29 +137,29 @@ public class NewExpenseFragment extends DialogFragment implements View.OnClickLi
         } else if (view.getId() == R.id.btn_cancel) {
             dismiss();
         } else if (view.getId() == R.id.btn_save) {
-            onSaveExpense();
+            onSaveExpenseData();
         }
     }
 
-    private void onSaveExpense() {
-        if (mCategoriesSpinnerAdapter.getCount() > 0 ) {
+    private void onSaveExpenseData() {
+        if (mCategoriesOfExpensesSpinAdapter.getCount() > 0 ) {
             if (!Util.isEmptyField(etTotal)) {
                 Category currentCategory = (Category) spCategory.getSelectedItem();
                 String total = etTotal.getText().toString();
                 String description = etDescription.getText().toString();
                 if (mUserActionMode == IUserActionsMode.MODE_CREATE) {
-                    RealmManager.getInstance().save(new Expense(description, selectedDate, mExpenseType, currentCategory, Float.parseFloat(total)), Expense.class);
+                    RealmManager.getInstance().save(new Expense(description, DateSelected, mExpenseType, currentCategory, Float.parseFloat(total)), Expense.class);
                 } else {
                     Expense editExpense = new Expense();
                     editExpense.setId(mExpense.getId());
                     editExpense.setTotal(Float.parseFloat(total));
                     editExpense.setDescription(description);
                     editExpense.setCategory(currentCategory);
-                    editExpense.setDate(selectedDate);
+                    editExpense.setDate(DateSelected);
                     RealmManager.getInstance().update(editExpense);
                 }
                 // update widget if the expense is created today
-                if (DateUtils.isToday(selectedDate)) {
+                if (DateUtils.isToday(DateSelected)) {
                     Intent i = new Intent(getActivity(), ExpensesWidgetProvider.class);
                     i.setAction(ExpensesWidgetService.UPDATE_WIDGET);
                     getActivity().sendBroadcast(i);
@@ -176,19 +176,19 @@ public class NewExpenseFragment extends DialogFragment implements View.OnClickLi
 
     private void showDateDialog() {
         final Calendar calendar = Calendar.getInstance();
-        calendar.setTime(selectedDate);
+        calendar.setTime(DateSelected);
         DialogManager.getInstance().showDatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 calendar.set(year, month, day);
-                selectedDate = calendar.getTime();
+                DateSelected = calendar.getTime();
                 updateDate();
             }
         }, calendar);
     }
 
     private void updateDate() {
-        btnDate.setText(Util.formatDateToString(selectedDate, Util.getCurrentDateFormat()));
+        btnDate.setText(Util.formatDateToString(DateSelected, Util.getCurrentDateFormat()));
     }
 
 }
