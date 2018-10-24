@@ -4,7 +4,7 @@
 
     <string name="exp">Expenses</string>
     <string name="income">Income</string>
-    <string name="cat">Categories</string>
+    <string name="category">Categories</string>
     <string name="confirm">Confirm</string>
     <string name="del">Delete</string>
     <string name="conf_del">" sure you want to delete "</string>

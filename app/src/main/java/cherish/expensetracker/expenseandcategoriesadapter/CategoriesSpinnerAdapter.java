@@ -12,7 +12,6 @@ import cherish.expensetracker.R;
 import cherish.expensetracker.entities.Category;
 
 
-
 public class CategoriesSpinnerAdapter extends ArrayAdapter<Category> {
 
     Category[] categoriesList = null;

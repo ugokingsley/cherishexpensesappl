@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ExpensesViewPagerAdapter extends FragmentStatePagerAdapter {
+public class ViewPagerExpensesAdapter extends FragmentStatePagerAdapter {
 
     private final List<ExpensesFragment> mFragmentList = new ArrayList<>();
     private List<String> pageTitles = new ArrayList<>();
 
-    public ExpensesViewPagerAdapter(FragmentManager manager) {
+    public ViewPagerExpensesAdapter(FragmentManager manager) {
         super(manager);
     }
 

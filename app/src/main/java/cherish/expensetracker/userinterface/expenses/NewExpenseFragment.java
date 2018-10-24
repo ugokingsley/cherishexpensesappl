@@ -17,8 +17,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import cherish.expensetracker.R;
-import cherish.expensetracker.expenseandcategoriesadapter.CategoriesSpinnerAdapter;
 import cherish.expensetracker.entities.Category;
+import cherish.expensetracker.expenseandcategoriesadapter.CategoriesSpinnerAdapter;
 import cherish.expensetracker.entities.Expense;
 import cherish.expensetracker.interface_helpers.IExpensesType;
 import cherish.expensetracker.interface_helpers.IUserActionsMode;
@@ -52,7 +52,7 @@ public class NewExpenseFragment extends DialogFragment implements View.OnClickLi
         NewExpenseFragment newExpenseFragment = new NewExpenseFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(IUserActionsMode.MODE_TAG, mode);
-        if (expenseId != null) bundle.putString(ExpenseDetailFragment.EXPENSE_ID_KEY, expenseId);
+        if (expenseId != null) bundle.putString(DetailExpenseFragment.EXPENSE_ID_KEY, expenseId);
         newExpenseFragment.setArguments(bundle);
         return newExpenseFragment;
     }
@@ -101,7 +101,7 @@ public class NewExpenseFragment extends DialogFragment implements View.OnClickLi
                 break;
             case IUserActionsMode.MODE_UPDATE:
                 if (getArguments() != null) {
-                    String id = getArguments().getString(ExpenseDetailFragment.EXPENSE_ID_KEY);
+                    String id = getArguments().getString(DetailExpenseFragment.EXPENSE_ID_KEY);
                     mExpense = (Expense) RealmManager.getInstance().findById(Expense.class, id);
                     tvTitle.setText("Edit");
                     selectedDate = mExpense.getDate();

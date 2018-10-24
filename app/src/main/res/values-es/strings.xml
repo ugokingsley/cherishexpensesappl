@@ -17,7 +17,7 @@
     <!--General-->
     <string name="exp">Gastos</string>
     <string name="income">Ganancias</string>
-    <string name="cat">Categorías</string>
+    <string name="category">Categorías</string>
     <string name="statistics">Estadísticas</string>
     <string name="reminders">Recordatorios</string>
     <string name="confirm">Confirmar</string>

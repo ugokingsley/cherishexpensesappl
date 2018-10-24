@@ -10,7 +10,7 @@ import android.widget.RemoteViewsService;
 import cherish.expensetracker.R;
 import cherish.expensetracker.entities.Expense;
 import cherish.expensetracker.interface_helpers.IExpensesType;
-import cherish.expensetracker.userinterface.expenses.ExpenseDetailFragment;
+import cherish.expensetracker.userinterface.expenses.DetailExpenseFragment;
 import cherish.expensetracker.utils.DateUtils;
 import cherish.expensetracker.utils.Util;
 
@@ -89,7 +89,7 @@ public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
         remoteView.setViewVisibility(R.id.tv_description, (expense.getDescription() != null && !expense.getDescription().isEmpty()) ? View.VISIBLE : View.GONE);
         remoteView.setTextColor(R.id.tv_total, expense.getType() == IExpensesType.MODE_EXPENSES ? context.getResources().getColor(R.color.colorAccentRed) : context.getResources().getColor(R.color.colorAccentGreen));
         Intent expenseIntent = new Intent();
-        expenseIntent.putExtra(ExpenseDetailFragment.EXPENSE_ID_KEY, expense.getId());
+        expenseIntent.putExtra(DetailExpenseFragment.EXPENSE_ID_KEY, expense.getId());
         remoteView.setOnClickFillInIntent(R.id.widget_item, expenseIntent);
         return remoteView;
     }

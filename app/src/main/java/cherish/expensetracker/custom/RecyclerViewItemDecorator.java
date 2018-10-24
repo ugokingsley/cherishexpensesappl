@@ -5,11 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 
-public class DefaultRecyclerViewItemDecorator extends RecyclerView.ItemDecoration {
+public class RecyclerViewItemDecorator extends RecyclerView.ItemDecoration {
 
     private final float mVerticalSpaceHeight;
 
-    public DefaultRecyclerViewItemDecorator(float mVerticalSpaceHeight) {
+    public RecyclerViewItemDecorator(float mVerticalSpaceHeight) {
         this.mVerticalSpaceHeight = mVerticalSpaceHeight;
     }
 

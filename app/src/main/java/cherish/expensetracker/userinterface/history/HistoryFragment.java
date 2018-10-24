@@ -14,18 +14,18 @@ import android.view.ViewGroup;
 import cherish.expensetracker.R;
 import cherish.expensetracker.expenseandcategoriesadapter.ExpensesAdapter;
 import cherish.expensetracker.custom.BaseViewHolder;
-import cherish.expensetracker.custom.DefaultRecyclerViewItemDecorator;
-import cherish.expensetracker.custom.DateSelectFragment;
-import cherish.expensetracker.custom.SparseBooleanArrayParcelable;
-import cherish.expensetracker.custom.ContentWrapManagerRecyclerView;
+import cherish.expensetracker.custom.RecyclerViewItemDecorator;
+import cherish.expensetracker.custom.DateSelectionFragment;
+import cherish.expensetracker.custom.SparseParcelable;
+import cherish.expensetracker.custom.ContentWrapRecyclerView;
 import cherish.expensetracker.entities.Expense;
 import cherish.expensetracker.interface_helpers.IConstants;
 import cherish.expensetracker.interface_helpers.IExpensesType;
 import cherish.expensetracker.interface_helpers.ISelectDateFragment;
 import cherish.expensetracker.userinterface.MainActivity;
 import cherish.expensetracker.userinterface.MainFragment;
-import cherish.expensetracker.userinterface.expenses.ExpenseDetailActivity;
-import cherish.expensetracker.userinterface.expenses.ExpenseDetailFragment;
+import cherish.expensetracker.userinterface.expenses.DetailExpenseActivity;
+import cherish.expensetracker.userinterface.expenses.DetailExpenseFragment;
 import cherish.expensetracker.utils.DateManager;
 import cherish.expensetracker.utils.DialogManager;
 import cherish.expensetracker.utils.ExpensesManager;
@@ -37,7 +37,7 @@ public class HistoryFragment extends MainFragment implements BaseViewHolder.Recy
     private RecyclerView rvHistory;
 
     private ExpensesAdapter mExpensesAdapter;
-    private DateSelectFragment dateSelectFragment;
+    private DateSelectionFragment dateSelectionFragment;
 
     public static final int REQUEST_WRITE_EXTERNAL_STORE = 101;
 
@@ -58,8 +58,8 @@ public class HistoryFragment extends MainFragment implements BaseViewHolder.Recy
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_history, container, false);
         rvHistory = (RecyclerView)rootView.findViewById(R.id.rv_history);
-        dateSelectFragment = (DateSelectFragment)getChildFragmentManager().findFragmentById(R.id.select_date_fragment);
-        dateSelectFragment.setSelectDateFragment(this);
+        dateSelectionFragment = (DateSelectionFragment)getChildFragmentManager().findFragmentById(R.id.select_date_fragment);
+        dateSelectionFragment.setSelectDateFragment(this);
         setHasOptionsMenu(true);
         return rootView;
     }
@@ -71,9 +71,9 @@ public class HistoryFragment extends MainFragment implements BaseViewHolder.Recy
         mMainActivityListener.setMode(MainActivity.NAVIGATION_MODE_STANDARD);
         mMainActivityListener.setTitle(getString(R.string.history));
 
-        rvHistory.setLayoutManager(new ContentWrapManagerRecyclerView(getActivity()));
+        rvHistory.setLayoutManager(new ContentWrapRecyclerView(getActivity()));
         rvHistory.setHasFixedSize(true);
-        rvHistory.addItemDecoration(new DefaultRecyclerViewItemDecorator(getResources().getDimension(R.dimen.dimen_10dp)));
+        rvHistory.addItemDecoration(new RecyclerViewItemDecorator(getResources().getDimension(R.dimen.dimen_10dp)));
         rvHistory.setNestedScrollingEnabled(false);
     }
 
@@ -88,7 +88,7 @@ public class HistoryFragment extends MainFragment implements BaseViewHolder.Recy
         } else {
             mExpensesAdapter.updateExpenses(ExpensesManager.getInstance().getExpensesList());
         }
-        dateSelectFragment.getTextViewTotal().setText(Util.getFormattedCurrency(total));
+        dateSelectionFragment.getTextViewTotal().setText(Util.getFormattedCurrency(total));
     }
 
     // Action mode for cat.
@@ -136,8 +136,8 @@ public class HistoryFragment extends MainFragment implements BaseViewHolder.Recy
     public void onClick(RecyclerView.ViewHolder vh, int position) {
         if (mActionMode == null) {
             Expense expenseSelected = (Expense) vh.itemView.getTag();
-            Intent expenseDetail = new Intent(getActivity(), ExpenseDetailActivity.class);
-            expenseDetail.putExtra(ExpenseDetailFragment.EXPENSE_ID_KEY, expenseSelected.getId());
+            Intent expenseDetail = new Intent(getActivity(), DetailExpenseActivity.class);
+            expenseDetail.putExtra(DetailExpenseFragment.EXPENSE_ID_KEY, expenseSelected.getId());
             startActivity(expenseDetail);
         } else {
             toggleSelection(position);
@@ -172,7 +172,7 @@ public class HistoryFragment extends MainFragment implements BaseViewHolder.Recy
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putBoolean(IConstants.IS_ACTION_MODE_ACTIVATED, mActionMode != null);
-        outState.putParcelable(IConstants.TAG_SELECTED_ITEMS, new SparseBooleanArrayParcelable(mExpensesAdapter.getSelectedBooleanArray()));
+        outState.putParcelable(IConstants.TAG_SELECTED_ITEMS, new SparseParcelable(mExpensesAdapter.getSelectedBooleanArray()));
         super.onSaveInstanceState(outState);
     }
 

@@ -32,7 +32,7 @@
             <TextView
                 android:id="@+id/tv_category"
                 style="@style/ExpenseTrackerTextView"
-                android:text="@string/cat"/>
+                android:text="@string/category"/>
 
             <TextView
                 android:id="@+id/tv_description"

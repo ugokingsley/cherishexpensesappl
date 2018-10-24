@@ -106,7 +106,7 @@ public class RealmManager {
             if ( realmObject == null ) {
                 if (object instanceof Expense) {
                     ((Expense)object).setId(id);
-                } else if (object instanceof  Category){
+                } else if (object instanceof Category){
                     ((Category)object).setId(id);
 
                 }

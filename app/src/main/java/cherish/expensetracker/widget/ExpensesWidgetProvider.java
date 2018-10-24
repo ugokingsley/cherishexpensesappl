@@ -13,7 +13,7 @@ import cherish.expensetracker.R;
 import cherish.expensetracker.entities.Expense;
 import cherish.expensetracker.interface_helpers.IDateMode;
 import cherish.expensetracker.userinterface.MainActivity;
-import cherish.expensetracker.userinterface.expenses.ExpenseDetailActivity;
+import cherish.expensetracker.userinterface.expenses.DetailExpenseActivity;
 import cherish.expensetracker.utils.Util;
 
 
@@ -22,7 +22,7 @@ public class ExpensesWidgetProvider extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         for (int appWidgetId : appWidgetIds){
-            Intent expenseDetailActivity = new Intent(context, ExpenseDetailActivity.class);
+            Intent expenseDetailActivity = new Intent(context, DetailExpenseActivity.class);
             Intent mainActivityIntent = new Intent(context, MainActivity.class);
 
             // Creating stack for builder item click

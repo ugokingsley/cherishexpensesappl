@@ -18,11 +18,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import cherish.expensetracker.R;
+import cherish.expensetracker.entities.Category;
 import cherish.expensetracker.expenseandcategoriesadapter.CategoriesAdapter;
 import cherish.expensetracker.custom.BaseViewHolder;
-import cherish.expensetracker.custom.DefaultRecyclerViewItemDecorator;
-import cherish.expensetracker.custom.SparseBooleanArrayParcelable;
-import cherish.expensetracker.entities.Category;
+import cherish.expensetracker.custom.RecyclerViewItemDecorator;
+import cherish.expensetracker.custom.SparseParcelable;
 import cherish.expensetracker.interface_helpers.IConstants;
 import cherish.expensetracker.interface_helpers.IExpensesType;
 import cherish.expensetracker.userinterface.MainActivity;
@@ -75,7 +75,7 @@ public class CategoriesFragment extends MainFragment implements TabLayout.OnTabS
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putBoolean(IConstants.IS_ACTION_MODE_ACTIVATED, mActionMode != null);
-        outState.putParcelable(IConstants.TAG_SELECTED_ITEMS, new SparseBooleanArrayParcelable(mCategoriesAdapter.getSelectedBooleanArray()));
+        outState.putParcelable(IConstants.TAG_SELECTED_ITEMS, new SparseParcelable(mCategoriesAdapter.getSelectedBooleanArray()));
         super.onSaveInstanceState(outState);
     }
 
@@ -105,12 +105,12 @@ public class CategoriesFragment extends MainFragment implements TabLayout.OnTabS
                 createCategoryDialog(null);
             }
         });
-        mMainActivityListener.setTitle(getString(R.string.cat));
+        mMainActivityListener.setTitle(getString(R.string.category));
 
         rvCategories.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvCategories.setAdapter(mCategoriesAdapter);
         rvCategories.setHasFixedSize(true);
-        rvCategories.addItemDecoration(new DefaultRecyclerViewItemDecorator(getResources().getDimension(R.dimen.dimen_10dp)));
+        rvCategories.addItemDecoration(new RecyclerViewItemDecorator(getResources().getDimension(R.dimen.dimen_10dp)));
 
         if (savedInstanceState != null) {
             if (savedInstanceState.containsKey(IConstants.TAG_SELECTED_ITEMS)) {

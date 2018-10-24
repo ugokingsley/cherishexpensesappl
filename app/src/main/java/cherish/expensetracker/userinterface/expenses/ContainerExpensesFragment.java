@@ -27,23 +27,23 @@ import cherish.expensetracker.utils.ExpensesManager;
 
 
 
-public class ExpensesContainerFragment extends MainFragment implements ExpensesFragment.IExpenseContainerListener {
+public class ContainerExpensesFragment extends MainFragment implements ExpensesFragment.IExpenseContainerListener {
 
     public static final int RQ_NEW_EXPENSE = 1001;
     private ViewPager vpExpensesContainer;
-    private ExpensesViewPagerAdapter expensesViewPagerAdapter;
+    private ViewPagerExpensesAdapter viewPagerExpensesAdapter;
 
     // Action mode for exp.
     private android.view.ActionMode mActionMode;
 
-    public static ExpensesContainerFragment newInstance() {
-        ExpensesContainerFragment fragment = new ExpensesContainerFragment();
+    public static ContainerExpensesFragment newInstance() {
+        ContainerExpensesFragment fragment = new ContainerExpensesFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
     }
 
-    public ExpensesContainerFragment() {
+    public ContainerExpensesFragment() {
         // Required empty public constructor
     }
 
@@ -72,11 +72,11 @@ public class ExpensesContainerFragment extends MainFragment implements ExpensesF
             }
         });
 
-        expensesViewPagerAdapter = new ExpensesViewPagerAdapter(getChildFragmentManager());
-        expensesViewPagerAdapter.addFrag(ExpensesFragment.newInstance(IDateMode.MODE_TODAY), getString(R.string.today));
-        expensesViewPagerAdapter.addFrag(ExpensesFragment.newInstance(IDateMode.MODE_WEEK), getString(R.string.week));
-        expensesViewPagerAdapter.addFrag(ExpensesFragment.newInstance(IDateMode.MODE_MONTH), getString(R.string.month));
-        vpExpensesContainer.setAdapter(expensesViewPagerAdapter);
+        viewPagerExpensesAdapter = new ViewPagerExpensesAdapter(getChildFragmentManager());
+        viewPagerExpensesAdapter.addFrag(ExpensesFragment.newInstance(IDateMode.MODE_TODAY), getString(R.string.today));
+        viewPagerExpensesAdapter.addFrag(ExpensesFragment.newInstance(IDateMode.MODE_WEEK), getString(R.string.week));
+        viewPagerExpensesAdapter.addFrag(ExpensesFragment.newInstance(IDateMode.MODE_MONTH), getString(R.string.month));
+        vpExpensesContainer.setAdapter(viewPagerExpensesAdapter);
         mMainActivityListener.setPager(vpExpensesContainer, new TabLayout.ViewPagerOnTabSelectedListener(vpExpensesContainer) {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -209,8 +209,8 @@ public class ExpensesContainerFragment extends MainFragment implements ExpensesF
     }
 
     private void updateExpenseSummary() {
-        if (vpExpensesContainer != null && expensesViewPagerAdapter != null) {
-            ExpensesFragment expensesFragment = expensesViewPagerAdapter.getItem(vpExpensesContainer.getCurrentItem());
+        if (vpExpensesContainer != null && viewPagerExpensesAdapter != null) {
+            ExpensesFragment expensesFragment = viewPagerExpensesAdapter.getItem(vpExpensesContainer.getCurrentItem());
             if (mMainActivityListener != null)
                 mMainActivityListener.setExpensesSummary(expensesFragment.getCurrentDateMode());
         }

@@ -21,7 +21,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-public class DateSelectFragment extends Fragment implements View.OnClickListener{
+public class DateSelectionFragment extends Fragment implements View.OnClickListener{
 
     private Button btnDateFrom;
     private Button btnDateTo;

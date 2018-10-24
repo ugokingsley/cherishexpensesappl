@@ -14,7 +14,7 @@
         <item
             android:id="@+id/nav_categories"
             android:icon="@drawable/ic_label_black_48dp"
-            android:title="@string/cat" />
+            android:title="@string/category" />
 
         <item
             android:id="@+id/nav_history"

@@ -24,7 +24,7 @@
 
 
         <activity
-            android:name="cherish.expensetracker.userinterface.expenses.ExpenseDetailActivity"
+            android:name="cherish.expensetracker.userinterface.expenses.DetailExpenseActivity"
             android:label="@string/activity_exp_detail_title" >
         </activity>
 

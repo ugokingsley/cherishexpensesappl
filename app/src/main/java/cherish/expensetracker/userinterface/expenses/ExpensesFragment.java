@@ -17,8 +17,8 @@ import android.view.ViewGroup;
 import cherish.expensetracker.R;
 import cherish.expensetracker.expenseandcategoriesadapter.MainExpenseAdapter;
 import cherish.expensetracker.custom.BaseViewHolder;
-import cherish.expensetracker.custom.DefaultRecyclerViewItemDecorator;
-import cherish.expensetracker.custom.SparseBooleanArrayParcelable;
+import cherish.expensetracker.custom.RecyclerViewItemDecorator;
+import cherish.expensetracker.custom.SparseParcelable;
 import cherish.expensetracker.entities.Expense;
 import cherish.expensetracker.interface_helpers.IConstants;
 import cherish.expensetracker.interface_helpers.IDateMode;
@@ -62,7 +62,7 @@ public class ExpensesFragment extends MainFragment implements BaseViewHolder.Rec
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putParcelable(IConstants.TAG_SELECTED_ITEMS, new SparseBooleanArrayParcelable(mMainExpenseAdapter.getSelectedBooleanArray()));
+        outState.putParcelable(IConstants.TAG_SELECTED_ITEMS, new SparseParcelable(mMainExpenseAdapter.getSelectedBooleanArray()));
         super.onSaveInstanceState(outState);
     }
 
@@ -111,7 +111,7 @@ public class ExpensesFragment extends MainFragment implements BaseViewHolder.Rec
             }
         }
         rvExpenses.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rvExpenses.addItemDecoration(new DefaultRecyclerViewItemDecorator(getResources().getDimension(R.dimen.dimen_5dp)));
+        rvExpenses.addItemDecoration(new RecyclerViewItemDecorator(getResources().getDimension(R.dimen.dimen_5dp)));
     }
 
     public void updateData() {
@@ -124,8 +124,8 @@ public class ExpensesFragment extends MainFragment implements BaseViewHolder.Rec
     public void onClick(RecyclerView.ViewHolder vh, int position) {
         if (!expenseContainerListener.isActionMode()) {
             Expense expenseSelected = (Expense) vh.itemView.getTag();
-            Intent expenseDetail = new Intent(getActivity(), ExpenseDetailActivity.class);
-            expenseDetail.putExtra(ExpenseDetailFragment.EXPENSE_ID_KEY, expenseSelected.getId());
+            Intent expenseDetail = new Intent(getActivity(), DetailExpenseActivity.class);
+            expenseDetail.putExtra(DetailExpenseFragment.EXPENSE_ID_KEY, expenseSelected.getId());
             startActivity(expenseDetail);
         } else {
             toggleSelection(position);

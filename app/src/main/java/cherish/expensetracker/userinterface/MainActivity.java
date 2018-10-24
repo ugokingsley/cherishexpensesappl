@@ -25,7 +25,7 @@ import cherish.expensetracker.entities.Expense;
 import cherish.expensetracker.interface_helpers.IDateMode;
 import cherish.expensetracker.interface_helpers.IMainActivityListener;
 import cherish.expensetracker.userinterface.categories.CategoriesFragment;
-import cherish.expensetracker.userinterface.expenses.ExpensesContainerFragment;
+import cherish.expensetracker.userinterface.expenses.ContainerExpensesFragment;
 import cherish.expensetracker.userinterface.history.HistoryFragment;
 
 
@@ -254,7 +254,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.main_content);
         switch (menuItemId) {
             case R.id.nav_expenses:
-                if (!(currentFragment instanceof ExpensesContainerFragment)) replaceFragment(ExpensesContainerFragment.newInstance(), false);
+                if (!(currentFragment instanceof ContainerExpensesFragment)) replaceFragment(ContainerExpensesFragment.newInstance(), false);
                 break;
             case R.id.nav_categories:
                 if (!(currentFragment instanceof  CategoriesFragment)) replaceFragment(CategoriesFragment.newInstance(), false);

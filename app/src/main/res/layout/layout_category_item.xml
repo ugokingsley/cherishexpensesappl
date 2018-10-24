@@ -22,7 +22,7 @@
         <TextView
             android:id="@+id/tv_title"
             style="@style/ExpenseTrackerTextView"
-            android:text="@string/cat"/>
+            android:text="@string/category"/>
 
     </RelativeLayout>
 

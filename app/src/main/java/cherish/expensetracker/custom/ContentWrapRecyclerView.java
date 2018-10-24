@@ -13,7 +13,7 @@ import java.lang.reflect.Field;
 
 
 
-public class ContentWrapManagerRecyclerView extends android.support.v7.widget.LinearLayoutManager {
+public class ContentWrapRecyclerView extends android.support.v7.widget.LinearLayoutManager {
 
     private static boolean canMakeInsetsDirty = true;
     private static Field insetsDirtyField = null;
@@ -31,26 +31,26 @@ public class ContentWrapManagerRecyclerView extends android.support.v7.widget.Li
     private final Rect tmpRect = new Rect();
 
     @SuppressWarnings("UnusedDeclaration")
-    public ContentWrapManagerRecyclerView(Context context) {
+    public ContentWrapRecyclerView(Context context) {
         super(context);
         this.view = null;
     }
 
     @SuppressWarnings("UnusedDeclaration")
-    public ContentWrapManagerRecyclerView(Context context, int orientation, boolean reverseLayout) {
+    public ContentWrapRecyclerView(Context context, int orientation, boolean reverseLayout) {
         super(context, orientation, reverseLayout);
         this.view = null;
     }
 
     @SuppressWarnings("UnusedDeclaration")
-    public ContentWrapManagerRecyclerView(RecyclerView view) {
+    public ContentWrapRecyclerView(RecyclerView view) {
         super(view.getContext());
         this.view = view;
         this.overScrollMode = ViewCompat.getOverScrollMode(view);
     }
 
     @SuppressWarnings("UnusedDeclaration")
-    public ContentWrapManagerRecyclerView(RecyclerView view, int orientation, boolean reverseLayout) {
+    public ContentWrapRecyclerView(RecyclerView view, int orientation, boolean reverseLayout) {
         super(view.getContext(), orientation, reverseLayout);
         this.view = view;
         this.overScrollMode = ViewCompat.getOverScrollMode(view);

@@ -18,7 +18,7 @@ import cherish.expensetracker.utils.RealmManager;
 import cherish.expensetracker.utils.Util;
 
 
-public class ExpenseDetailFragment extends BaseFragment implements View.OnClickListener {
+public class DetailExpenseFragment extends BaseFragment implements View.OnClickListener {
 
     public static final String EXPENSE_ID_KEY = "_expense_id";
     public static final int RQ_EDIT_EXPENSE = 1001;
@@ -26,15 +26,15 @@ public class ExpenseDetailFragment extends BaseFragment implements View.OnClickL
 
     private Expense expense;
 
-    static ExpenseDetailFragment newInstance(String id) {
-        ExpenseDetailFragment expenseDetailFragment = new ExpenseDetailFragment();
+    static DetailExpenseFragment newInstance(String id) {
+        DetailExpenseFragment detailExpenseFragment = new DetailExpenseFragment();
         Bundle bundle = new Bundle();
         bundle.putString(EXPENSE_ID_KEY, id);
-        expenseDetailFragment.setArguments(bundle);
-        return expenseDetailFragment;
+        detailExpenseFragment.setArguments(bundle);
+        return detailExpenseFragment;
     }
 
-    public ExpenseDetailFragment() {
+    public DetailExpenseFragment() {
     }
 
     @Override

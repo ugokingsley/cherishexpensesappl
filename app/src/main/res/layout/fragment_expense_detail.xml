@@ -9,7 +9,7 @@
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context="cherish.expensetracker.userinterface.expenses.ExpenseDetailFragment">
+        tools:context="cherish.expensetracker.userinterface.expenses.DetailExpenseFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
