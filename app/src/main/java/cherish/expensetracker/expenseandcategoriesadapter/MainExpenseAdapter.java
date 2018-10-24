@@ -103,7 +103,7 @@ public class MainExpenseAdapter extends ExpensesAdapter {
 
     public void updateExpenses(@IDateMode int mCurrentDateMode) {
         this.mCurrentDateMode = mCurrentDateMode;
-        ExpensesManager.getInstance().setExpensesListByDateMode(mCurrentDateMode);
+        ExpensesManager.getInstance().setExpensesDataRecordsListByDateMode(mCurrentDateMode);
         this.mExpensesList = ExpensesManager.getInstance().getExpensesList();
         notifyDataSetChanged();
     }

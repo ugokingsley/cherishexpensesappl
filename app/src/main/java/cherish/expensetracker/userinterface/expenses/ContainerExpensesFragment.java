@@ -199,7 +199,7 @@ public class ContainerExpensesFragment extends MainFragment implements ExpensesF
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (which == DialogInterface.BUTTON_POSITIVE) {
-                    ExpensesManager.getInstance().eraseSelectedExpenses();
+                    ExpensesManager.getInstance().eraseSelectedExpensesDataRecords();
                     LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(new Intent(IConstants.BROADCAST_UPDATE_EXPENSES));
                 }
                 mActionMode.finish();

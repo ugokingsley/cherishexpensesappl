@@ -100,7 +100,7 @@ public class ExpensesFragment extends MainFragment implements BaseViewHolder.Rec
         if (getArguments() != null) {
             @IDateMode int mode = getArguments().getInt(IDateMode.DATE_MODE_TAG);
             mCurrentDateMode = mode;
-            ExpensesManager.getInstance().setExpensesListByDateMode(mCurrentDateMode);
+            ExpensesManager.getInstance().setExpensesDataRecordsListByDateMode(mCurrentDateMode);
             mMainExpenseAdapter = new MainExpenseAdapter(getActivity(), this, mCurrentDateMode);
             rvExpenses.setAdapter(mMainExpenseAdapter);
         }
@@ -115,7 +115,7 @@ public class ExpensesFragment extends MainFragment implements BaseViewHolder.Rec
     }
 
     public void updateData() {
-        ExpensesManager.getInstance().setExpensesListByDateMode(mCurrentDateMode);
+        ExpensesManager.getInstance().setExpensesDataRecordsListByDateMode(mCurrentDateMode);
         ExpensesManager.getInstance().resetSelectedItems();
        if (mMainExpenseAdapter != null) mMainExpenseAdapter.updateExpenses(mCurrentDateMode);
     }

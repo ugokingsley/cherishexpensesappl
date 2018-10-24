@@ -53,16 +53,16 @@ public class DetailExpenseFragment extends BaseFragment implements View.OnClickL
             String id = getArguments().getString(EXPENSE_ID_KEY);
             if( id != null) {
                 expense = (Expense) RealmManager.getInstance().findById(Expense.class, id);
-                loadData();
+                loadDetails();
 
             }
         }
     }
 
-    private void loadData() {
-        TextView tvExpenseTotal = ((TextView)getView().findViewById(R.id.tv_total));
+    private void loadDetails() {
+        TextView tvExpenseTotal = (getView().findViewById(R.id.tv_total));
         tvExpenseTotal.setText(Util.getFormattedCurrency(expense.getTotal()));
-        tvExpenseTotal.setTextColor(getResources().getColor(expense.getType() == IExpensesType.MODE_EXPENSES ? R.color.colorAccentRed : R.color.colorAccentGreen));
+
         ((TextView)getView().findViewById(R.id.tv_category)).setText(String.valueOf(expense.getCategory().getName()));
         ((TextView)getView().findViewById(R.id.tv_description)).setText(String.valueOf(expense.getDescription()));
         ((TextView)getView().findViewById(R.id.tv_date)).setText(Util.formatDateToString(expense.getDate(), Util.getCurrentDateFormat()));
@@ -72,11 +72,11 @@ public class DetailExpenseFragment extends BaseFragment implements View.OnClickL
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.fab_edit) {
-            onEditExpense();
+            onEditExpenseInDetail();
         }
     }
 
-    private void onEditExpense() {
+    private void onEditExpenseInDetail() {
         NewExpenseFragment newExpenseFragment = NewExpenseFragment.newInstance(IUserActionsMode.MODE_UPDATE, expense.getId());
         newExpenseFragment.setTargetFragment(this, RQ_EDIT_EXPENSE);
         newExpenseFragment.show(getFragmentManager(), "EDIT_EXPENSE");
@@ -86,7 +86,7 @@ public class DetailExpenseFragment extends BaseFragment implements View.OnClickL
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == RQ_EDIT_EXPENSE && resultCode == Activity.RESULT_OK) {
-            loadData();
+            loadDetails();
 
         }
     }

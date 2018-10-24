@@ -46,7 +46,7 @@ public class DateSelectionFragment extends Fragment implements View.OnClickListe
         btnDateTo.setOnClickListener(this);
         updateDate(btnDateFrom, DateManager.getInstance().getDateFrom());
         updateDate(btnDateTo, DateManager.getInstance().getDateTo());
-        iSelectDateFragment.updateData();
+        iSelectDateFragment.updateHistoryData();
     }
 
     @Override
@@ -74,7 +74,7 @@ public class DateSelectionFragment extends Fragment implements View.OnClickListe
                                     DateManager.getInstance().setDateTo(calendar.getTime());
                                     updateDate(btnDateTo, DateManager.getInstance().getDateTo());
                                 }
-                                iSelectDateFragment.updateData();
+                                iSelectDateFragment.updateHistoryData();
                             }
                         },
                         calendar,

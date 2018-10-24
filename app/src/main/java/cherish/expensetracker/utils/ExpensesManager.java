@@ -18,8 +18,8 @@ import java.util.List;
 
 public class ExpensesManager {
 
-    private List<Expense> mExpensesList = new ArrayList<>();
-    private SparseBooleanArray mSelectedExpensesItems = new SparseBooleanArray();
+    private List<Expense> mExpensesDataListReords = new ArrayList<>();
+    private SparseBooleanArray mSelectedExpensesItemsDatalistRecords = new SparseBooleanArray();
 
     private static ExpensesManager ourInstance = new ExpensesManager();
 
@@ -31,49 +31,49 @@ public class ExpensesManager {
     }
 
     public void setExpensesList(Date dateFrom, Date dateTo, @IExpensesType int type,  Category category) {
-        mExpensesList = Expense.getExpensesList(dateFrom, dateTo, type, category);
+        mExpensesDataListReords = Expense.getExpensesList(dateFrom, dateTo, type, category);
         resetSelectedItems();
     }
 
-    public void setExpensesListByDateMode(@IDateMode int mCurrentDateMode) {
+    public void setExpensesDataRecordsListByDateMode(@IDateMode int mCurrentDateMode) {
         switch (mCurrentDateMode) {
             case IDateMode.MODE_TODAY:
-                mExpensesList = Expense.getTodayExpenses();
+                mExpensesDataListReords = Expense.getTodayExpenses();
                 break;
             case IDateMode.MODE_WEEK:
-                mExpensesList = Expense.getWeekExpenses();
+                mExpensesDataListReords = Expense.getWeekExpenses();
                 break;
             case IDateMode.MODE_MONTH:
-                mExpensesList = Expense.getMonthExpenses();
+                mExpensesDataListReords = Expense.getMonthExpenses();
                 break;
         }
     }
 
     public List<Expense> getExpensesList() {
-        return mExpensesList;
+        return mExpensesDataListReords;
     }
 
     public SparseBooleanArray getSelectedExpensesItems() {
-        return mSelectedExpensesItems;
+        return mSelectedExpensesItemsDatalistRecords;
     }
 
     public void resetSelectedItems() {
-        mSelectedExpensesItems.clear();
+        mSelectedExpensesItemsDatalistRecords.clear();
     }
 
-    public List<Integer> getSelectedExpensesIndex() {
-        List<Integer> items = new ArrayList<>(mSelectedExpensesItems.size());
-        for (int i = 0; i < mSelectedExpensesItems.size(); ++i) {
-            items.add(mSelectedExpensesItems.keyAt(i));
+    public List<Integer> getSelectedExpensesDataRecordIndex() {
+        List<Integer> items = new ArrayList<>(mSelectedExpensesItemsDatalistRecords.size());
+        for (int i = 0; i < mSelectedExpensesItemsDatalistRecords.size(); ++i) {
+            items.add(mSelectedExpensesItemsDatalistRecords.keyAt(i));
         }
         return items;
     }
 
-    public void eraseSelectedExpenses() {
+    public void eraseSelectedExpensesDataRecords() {
         boolean isToday = false;
         List<Expense> expensesToDelete = new ArrayList<>();
-        for (int position : getSelectedExpensesIndex()) {
-            Expense expense = mExpensesList.get(position);
+        for (int position : getSelectedExpensesDataRecordIndex()) {
+            Expense expense = mExpensesDataListReords.get(position);
             expensesToDelete.add(expense);
             Date expenseDate = expense.getDate();
             // update widget if the expense is created today
@@ -90,7 +90,7 @@ public class ExpensesManager {
     }
 
     public void setSelectedItems(SparseBooleanArray selectedItems) {
-        this.mSelectedExpensesItems = selectedItems;
+        this.mSelectedExpensesItemsDatalistRecords = selectedItems;
     }
 
 }

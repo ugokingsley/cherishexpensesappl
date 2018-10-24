@@ -79,7 +79,7 @@ public class HistoryFragment extends MainFragment implements BaseViewHolder.Recy
 
 
     @Override
-    public void updateData() {
+    public void updateHistoryData() {
         float total = Expense.getCategoryTotalByDate(DateManager.getInstance().getDateFrom(), DateManager.getInstance().getDateTo(), null);
         ExpensesManager.getInstance().setExpensesList(DateManager.getInstance().getDateFrom(), DateManager.getInstance().getDateTo(), IExpensesType.MODE_EXPENSES, null);
         if ( mExpensesAdapter == null ) {
@@ -117,7 +117,7 @@ public class HistoryFragment extends MainFragment implements BaseViewHolder.Recy
         public boolean onActionItemClicked(android.view.ActionMode mode, MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.delete:
-                    eraseExpenses();
+                    eraseHistoryExpenses();
                     return true;
                 default:
                     return false;
@@ -163,11 +163,7 @@ public class HistoryFragment extends MainFragment implements BaseViewHolder.Recy
         }
     }
 
-    public void cancelActionMode() {
-        if (mActionMode != null) {
-            mActionMode.finish();
-        }
-    }
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -176,14 +172,14 @@ public class HistoryFragment extends MainFragment implements BaseViewHolder.Recy
         super.onSaveInstanceState(outState);
     }
 
-    private void eraseExpenses() {
+    private void eraseHistoryExpenses() {
         DialogManager.getInstance().createCustomAcceptDialog(getActivity(), getString(R.string.del), getString(R.string.conf_del_items), getString(R.string.confirm), getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (which == DialogInterface.BUTTON_POSITIVE) {
-                    ExpensesManager.getInstance().eraseSelectedExpenses();
+                    ExpensesManager.getInstance().eraseSelectedExpensesDataRecords();
                 }
-                updateData();
+                updateHistoryData();
                 mActionMode.finish();
                 mActionMode = null;
             }
